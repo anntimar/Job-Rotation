@@ -1,0 +1,101 @@
+1) O laço de repetição "enquanto" é executado enquanto a condição K < INDICE for verdadeiro. Isso significa que o código dentro do laço será executado 13 vezes, já que o valor inicial de K é 0 e o valor de INDICE é 13.
+
+A cada iteração do laço, a variável K é incrementada em uma unidade e a variável SOMA é atualizada com o soma dela mais K. Isso significa que, na primeira iteração, SOMA recebe o valor de 1 (0 + 1), na segunda iteração , SOMA recebe o valor de 3 (1 + 2), na terceira iteração, SOMA recebe o valor de 6 (3 + 3), e assim por diante, até a décima-terceira iteração, quando SOMA recebe o valor de 91 (78 + 13).
+
+Ao final do processamento, a variável SOMA terá acumulado a soma dos números de 1 a 13, que é igual a 91.
+
+2)using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Obter um número inteiro positivo do usuário
+        Console.Write("Digite um número inteiro positivo: ");
+        int num = int.Parse(Console.ReadLine());
+
+        // Inicializar a sequência de Fibonacci com os dois primeiros números
+        int[] fib = new int[] { 0, 1 };
+
+        // Adicionar números à sequência de Fibonacci enquanto o último número adicionado for menor ou igual ao número informado pelo usuário
+        while (fib[fib.Length - 1] <= num)
+        {
+            // Calcular o próximo número da sequência de Fibonacci como a soma dos dois últimos números
+            int nextNum = fib[fib.Length - 1] + fib[fib.Length - 2];
+            // Adicionar o próximo número à sequência de Fibonacci
+            Array.Resize(ref fib, fib.Length + 1);
+            fib[fib.Length - 1] = nextNum;
+        }
+
+        // Verificar se o número informado pelo usuário pertence ou não à sequência de Fibonacci
+        if (Array.IndexOf(fib, num) != -1)
+        {
+            Console.WriteLine($"O número {num} pertence à sequência de Fibonacci.");
+        }
+        else
+        {
+            Console.WriteLine($"O número {num} não pertence à sequência de Fibonacci.");
+        }
+    }
+}
+
+
+3)a) A lógica é adicionar 2 ao número anterior em cada termo da sequência. Portanto, o próximo elemento é 9.
+
+b) A lógica é multiplicar o número anterior por 2 em cada termo da sequência. Portanto, o próximo elemento é 128.
+
+c) A lógica é adicionar os números consecutivos consecutivos a partir de 1 ao número anterior em cada termo da sequência. Portanto, o próximo elemento é 49.
+
+d) A lógica é adicionar 12 ao número anterior em cada termo da sequência. Portanto, o próximo elemento é 100.
+
+e) A lógica é somar os dois números anteriores em cada termo da sequência. Portanto, o próximo elemento é 13.
+
+f) A lógica não é intencionalmente a partir dos números de dados. Pode haver padrões diferentes que podem ser usados ​​para continuar a sequência. Sem informações adicionais, é impossível determinar o próximo elemento com certeza.
+
+
+
+4) 
+Vamos analisar o problema com mais detalhes:
+
+A distância total entre Ribeirão Preto e Franca é de 100 km.
+Como os dois veículos estão se aproximando um do outro, eles percorrem uma distância igual antes de se encontrarem.
+Portanto, cada veículo percorre metade da distância total, ou seja, 50 km.
+O carro está indo em direção a Franca, portanto, quando ele se encontrar com o caminhão, estará mais próximo de Franca do que de Ribeirão Preto. Por outro lado, o caminhão está indo em direção a Ribeirão Preto, portanto, quando ele se encontrar com o carro, estará mais próximo de Ribeirão Preto do que de Franca.
+
+Para descobrir qual veículo estará mais próximo de Ribeirão Preto quando eles se encontrarem, podemos calcular o tempo que cada veículo leva para percorrer a distância até o ponto de encontro.
+
+Para o carro: Tempo = Distância / Velocidade = 50 km / 110 km/h = 0,4545 horas = 27,27 minutos
+
+Para o caminhão: Tempo = Distância / Velocidade = 50 km / 80 km/h = 0,625 horas = 37,5 minutos
+
+Portanto, quando eles se encontrarem, o carro estará mais próximo de Ribeirão Preto, pois ele terá percorrido uma distância menor até chegar ao ponto de encontro. O caminhão terá percorrido uma distância maior e, portanto, estará mais próximo de Franca.
+
+5)
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Obter a string do usuário
+        Console.Write("Digite uma string: ");
+        string str = Console.ReadLine();
+
+        // Converter a string para um array de caracteres
+        char[] chars = str.ToCharArray();
+
+        // Inverter os caracteres do array
+        for (int i = 0; i < chars.Length / 2; i++)
+        {
+            char temp = chars[i];
+            chars[i] = chars[chars.Length - 1 - i];
+            chars[chars.Length - 1 - i] = temp;
+        }
+
+        // Converter o array de caracteres de volta para a string
+        string reversedStr = new string(chars);
+
+        // Exibir a string invertida
+        Console.WriteLine($"A string invertida é: {reversedStr}");
+    }
+}
